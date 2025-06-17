@@ -1,14 +1,16 @@
 @use 'sass:math';
+@use './variables';
 
 .container {
   margin: 0px auto;
   max-width: 1600px;
+  padding: 0px spacing(4);
 }
 
 @function spacing($space) {
   @return $space * 4px;
 }
 
-@function font-size($sizePx) {
-  @return math.div($sizePx, 16) + rem;
+@function to-rem($sizePx) {
+  @return math.div($sizePx, 18) + rem;
 }

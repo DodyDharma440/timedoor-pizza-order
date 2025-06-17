@@ -13,10 +13,16 @@ export const footerSocmed = [
 ]
 
 export const footerNavMenu = [
-  ...navMenu.slice(0, 5),
-  { label: 'Contact', path: '#' },
-  { label: 'Login', path: '#' },
-  { label: 'Register', path: '#' },
+  {
+    items: [...navMenu.slice(0, 5)],
+  },
+  {
+    items: [
+      { label: 'Contact', path: '#' },
+      { label: 'Login', path: '#' },
+      { label: 'Register', path: '#' },
+    ],
+  },
 ]
 
 export const footerContacts = [

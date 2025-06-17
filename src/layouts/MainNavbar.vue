@@ -14,7 +14,7 @@ import { RouterLink } from 'vue-router'
       </RouterLink>
     </div>
     <div class="buttons">
-      <button class="btn">Login</button>
+      <button class="btn login">Login</button>
       <button class="btn btn-primary register">Register</button>
     </div>
   </nav>
@@ -52,16 +52,19 @@ import { RouterLink } from 'vue-router'
     align-items: center;
     justify-content: center;
     gap: spacing(7.5);
-    font-size: font-size(18);
     font-weight: 700;
 
     a {
       text-decoration: none;
       color: inherit;
-    }
 
-    a.router-link-active {
-      color: $primary-color;
+      &:hover {
+        color: $primary-color;
+      }
+
+      &.router-link-active {
+        color: $primary-color;
+      }
     }
   }
 
@@ -69,6 +72,12 @@ import { RouterLink } from 'vue-router'
     display: flex;
     align-items: center;
     gap: spacing(1);
+
+    .login {
+      &:hover {
+        color: $primary-color;
+      }
+    }
 
     .register {
       min-width: 160px;
