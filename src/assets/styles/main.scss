@@ -1,11 +1,19 @@
-@import './variables';
+@use './variables' as variables;
+@use './reset' as *;
+@use './utilities' as *;
+@use './mixins' as *;
+@use './buttons' as *;
 
 html {
   background-color: $main-background;
+  font-size: 14px;
+
+  @include lg {
+    font-size: 16px;
+  }
 }
 
 body {
-  font-size: 16px;
   font-family:
     system-ui,
     -apple-system,
