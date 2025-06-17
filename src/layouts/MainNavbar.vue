@@ -4,24 +4,24 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <nav class="main-nav container">
-    <div class="logo">
+  <nav class="container navbar">
+    <div class="navbar__logo">
       <img src="/images/logo.svg" />
     </div>
-    <div class="menu">
+    <div class="navbar__menu">
       <RouterLink v-for="(menu, index) in navMenu" :to="menu.path" :key="index">
         <span>{{ menu.label }}</span>
       </RouterLink>
     </div>
-    <div class="buttons">
-      <button class="btn login">Login</button>
-      <button class="btn btn-primary register">Register</button>
+    <div class="navbar__buttons">
+      <button class="btn navbar__buttons-login">Login</button>
+      <button class="btn btn--primary navbar__buttons-register">Register</button>
     </div>
   </nav>
 </template>
 
 <style lang="scss" scoped>
-.main-nav {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,12 +33,12 @@ import { RouterLink } from 'vue-router'
   right: 0;
   color: #ffffff;
 
-  .logo,
-  .buttons {
+  &__logo,
+  &__buttons {
     width: 240px;
   }
 
-  .logo {
+  &__logo {
     img {
       width: 220px;
       height: 65px;
@@ -46,7 +46,7 @@ import { RouterLink } from 'vue-router'
     }
   }
 
-  .menu {
+  &__menu {
     flex: 1;
     display: flex;
     align-items: center;
@@ -68,18 +68,18 @@ import { RouterLink } from 'vue-router'
     }
   }
 
-  .buttons {
+  &__buttons {
     display: flex;
     align-items: center;
     gap: spacing(1);
 
-    .login {
+    &-login {
       &:hover {
         color: $primary-color;
       }
     }
 
-    .register {
+    &-register {
       min-width: 160px;
     }
   }

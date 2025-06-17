@@ -7,10 +7,8 @@
   min-width: 100px;
   font-weight: 700;
   transition: all 300ms;
-}
 
-.btn {
-  &-primary {
+  &--primary {
     background-color: variables.$primary-color;
     &:hover {
       background-color: rgba(variables.$primary-color, 0.9);
