@@ -10,6 +10,7 @@
 
   &--primary {
     background-color: variables.$primary-color;
+    color: #ffffff;
     &:hover {
       background-color: rgba(variables.$primary-color, 0.9);
     }

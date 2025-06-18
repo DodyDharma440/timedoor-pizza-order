@@ -1,16 +1,22 @@
 @use 'sass:math';
 @use './variables';
 
-.container {
-  margin: 0px auto;
-  max-width: 1600px;
-  padding: 0px spacing(4);
-}
-
 @function spacing($space) {
   @return $space * 4px;
 }
 
 @function to-rem($sizePx) {
   @return math.div($sizePx, 18) + rem;
+}
+
+.container {
+  margin: 0px auto;
+  max-width: 1667px;
+  padding: 0px spacing(4);
+}
+
+.section-title {
+  font-size: to-rem(48);
+  font-weight: 700;
+  color: variables.$primary-color;
 }

@@ -18,16 +18,16 @@ import PaymentSummary from './PaymentSummary.vue'
 
 <style lang="scss" scoped>
 .order {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  display: flex;
   gap: spacing(7.5);
+  padding: spacing(40) 0px;
 
   &__pizza {
-    grid-column: span 9 / span 9;
+    flex: 1;
   }
 
   &__payment-summary {
-    grid-column: span 3 / span 3;
+    width: 391px;
   }
 }
 </style>
