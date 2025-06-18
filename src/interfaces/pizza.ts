@@ -10,3 +10,9 @@ export interface IPizza {
   discount: IPizzaDiscount
   toppings: number[]
 }
+
+export interface IPizzaSize {
+  id: number
+  name: string
+  extra_price: number
+}
