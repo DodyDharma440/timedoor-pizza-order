@@ -20,6 +20,8 @@
     inset: 0;
     object-fit: cover;
     z-index: 1;
+    width: 100%;
+    height: 100%;
   }
 
   &__title {
