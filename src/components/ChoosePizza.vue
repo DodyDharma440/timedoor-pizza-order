@@ -12,7 +12,7 @@ const store = useOrderStore()
     <div class="pizza-list__item" v-for="pizza in pizzaList.data" :key="pizza.id">
       <PizzaCard
         :pizza="pizza"
-        :is-selected="store.pizza.id === pizza.id"
+        :is-selected="store.pizza?.id === pizza.id"
         @select="store.setPizza(pizza)"
       />
     </div>

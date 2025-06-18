@@ -29,7 +29,7 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
           v-for="size in sizeList.data"
           :key="size.id"
           :value="size.id"
-          :checked="size.id === selectedSize.id"
+          :checked="size.id === selectedSize?.id"
           @change="handleChangeSize($event, size)"
         >
           {{ size.name }}
@@ -55,7 +55,7 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
               'btn--primary-light': store.isToppingSelected(topping.id),
             }"
             @click="store.toggleSelectTopping(topping)"
-            :disabled="!pizza.toppings.includes(topping.id)"
+            :disabled="!pizza?.toppings.includes(topping.id)"
           >
             {{ topping.name }}
           </button>

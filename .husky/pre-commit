@@ -3,3 +3,4 @@
 
 echo "Checking TypeScript errors before commit..."
 yarn tsc
+yarn type-check
