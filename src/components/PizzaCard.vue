@@ -45,11 +45,16 @@ const finalPrice = pizza.discount.is_active ? pizza.discount.final_price : pizza
   border: 1px solid rgba($color: $text-color, $alpha: 0.1);
   transition: all 300ms;
   cursor: pointer;
-  padding: spacing(8);
   display: flex;
   align-items: center;
-  gap: spacing(8);
+  padding: spacing(4);
+  gap: spacing(4);
   font-size: to-rem(20);
+
+  @include lg {
+    padding: spacing(8);
+    gap: spacing(8);
+  }
 
   &:hover {
     background-color: rgba($color: $primary-color, $alpha: 0.3);

@@ -1,5 +1,6 @@
 @use 'sass:math';
 @use './variables';
+@use './mixins';
 
 @function spacing($space) {
   @return $space * 4px;
@@ -12,11 +13,16 @@
 .container {
   margin: 0px auto;
   max-width: 1667px;
-  padding: 0px spacing(4);
+  padding-left: spacing(4);
+  padding-right: spacing(4);
 }
 
 .section-title {
-  font-size: to-rem(48);
   font-weight: 700;
   color: variables.$primary-color;
+  font-size: to-rem(36);
+
+  @include mixins.lg {
+    font-size: to-rem(48);
+  }
 }

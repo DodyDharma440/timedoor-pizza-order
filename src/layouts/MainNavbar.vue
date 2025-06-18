@@ -51,8 +51,12 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: spacing(6);
+    padding: spacing(4);
     gap: spacing(4);
+
+    @include lg {
+      padding: spacing(6);
+    }
   }
 
   &--solid {
@@ -62,24 +66,38 @@ onUnmounted(() => {
 
   &__logo,
   &__buttons {
-    width: 240px;
+    min-width: 240px;
   }
 
   &__logo {
     img {
-      width: 220px;
-      height: 65px;
       object-fit: contain;
+      width: 120px;
+      height: 36px;
+
+      @include md {
+        width: 150px;
+        height: 40px;
+      }
+
+      @include lg {
+        width: 220px;
+        height: 65px;
+      }
     }
   }
 
   &__menu {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: spacing(7.5);
+    display: none;
     font-weight: 700;
+
+    @include lg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: spacing(7.5);
+    }
 
     a {
       text-decoration: none;
@@ -96,9 +114,13 @@ onUnmounted(() => {
   }
 
   &__buttons {
-    display: flex;
+    display: none;
     align-items: center;
     gap: spacing(1);
+
+    @include lg {
+      display: flex;
+    }
 
     &-login {
       &:hover {

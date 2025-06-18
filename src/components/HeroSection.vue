@@ -27,9 +27,14 @@
   &__title {
     position: relative;
     z-index: 2;
-    font-size: to-rem(96);
     font-weight: 700;
     color: $primary-color;
+    text-align: center;
+    font-size: to-rem(70);
+
+    @include md {
+      font-size: to-rem(96);
+    }
   }
 }
 </style>

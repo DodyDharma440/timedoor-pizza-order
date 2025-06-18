@@ -20,14 +20,30 @@ import PaymentSummary from './PaymentSummary.vue'
 .order {
   display: flex;
   gap: spacing(7.5);
-  padding: spacing(40) 0px;
+  padding-top: spacing(20);
+  padding-bottom: spacing(20);
+  flex-wrap: wrap;
+
+  @include md {
+    padding-top: spacing(30);
+    padding-bottom: spacing(30);
+  }
+
+  @include lg {
+    padding-top: spacing(40);
+    padding-bottom: spacing(40);
+  }
 
   &__pizza {
     flex: 1;
   }
 
   &__payment-summary {
-    width: 391px;
+    width: 100%;
+
+    @include xl {
+      width: 391px;
+    }
   }
 }
 </style>

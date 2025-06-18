@@ -23,7 +23,7 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
   <h2 class="section-title">Custom Pizza</h2>
   <div class="custom-pizza">
     <div class="custom-pizza__size">
-      <label class="custom-pizza__field-label">Size</label>
+      <h6 class="custom-pizza__field-label">Size</h6>
       <div class="custom-pizza__size-list">
         <RadioButton
           v-for="size in sizeList.data"
@@ -41,7 +41,7 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
     </div>
 
     <div class="custom-pizza__toppings">
-      <label class="custom-pizza__field-label">Toppings</label>
+      <h6 class="custom-pizza__field-label">Toppings</h6>
       <div class="custom-pizza__toppings-list">
         <div
           class="custom-pizza__toppings-list-item"
@@ -82,7 +82,12 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
     &-list {
       display: flex;
       align-items: center;
-      gap: spacing(7.5);
+      flex-wrap: wrap;
+      gap: spacing(5);
+
+      @include lg {
+        gap: spacing(7.5);
+      }
     }
 
     &-extra-price {
@@ -94,10 +99,18 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
     &-list {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: spacing(7.5);
+      gap: spacing(5);
+
+      @include lg {
+        gap: spacing(7.5);
+      }
 
       &-item {
-        grid-column: span 2 / span 2;
+        grid-column: span 6 / span 6;
+
+        @include lg {
+          grid-column: span 2 / span 2;
+        }
 
         .btn {
           width: 100%;

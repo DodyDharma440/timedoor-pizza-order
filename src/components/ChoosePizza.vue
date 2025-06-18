@@ -24,11 +24,29 @@ const store = useOrderStore()
   margin-top: spacing(10);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: spacing(7.5);
-  margin-bottom: spacing(40);
+  gap: spacing(3.5);
+  margin-bottom: spacing(20);
+
+  @include md {
+    margin-bottom: spacing(30);
+    gap: spacing(4.5);
+  }
+
+  @include lg {
+    margin-bottom: spacing(40);
+    gap: spacing(7.5);
+  }
 
   &__item {
-    grid-column: span 4 / span 4;
+    grid-column: span 12 / span 12;
+
+    @include xl {
+      grid-column: span 6 / span 6;
+    }
+
+    @include xxl {
+      grid-column: span 4 / span 4;
+    }
   }
 }
 </style>

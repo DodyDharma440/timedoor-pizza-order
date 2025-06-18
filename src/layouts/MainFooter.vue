@@ -95,24 +95,52 @@ import { footerContacts, footerNavMenu, footerSocmed } from '@/constants/menu'
     gap: spacing(5);
 
     > div {
-      grid-column: span 3 / span 3;
       font-size: to-rem(20);
+      grid-column: span 12 / span 12;
+
+      @include md {
+        font-size: to-rem(20);
+      }
+
+      @include lg {
+        grid-column: span 6 / span 6;
+      }
+
+      @include xl {
+        grid-column: span 3 / span 3;
+      }
     }
   }
 
   &__section-title {
-    font-size: to-rem(24);
+    font-size: to-rem(22);
     font-weight: 700;
     color: $primary-color;
-    margin-bottom: spacing(6);
+    margin-bottom: spacing(5);
+
+    @include md {
+      font-size: to-rem(24);
+      margin-bottom: spacing(6);
+    }
   }
 
   &__logo {
     &-image {
-      width: 244px;
-      height: 73px;
       object-fit: contain;
-      margin-bottom: spacing(9);
+      width: 200px;
+      height: 55px;
+      margin-bottom: spacing(6);
+
+      @include md {
+        width: 220px;
+        height: 65px;
+        margin-bottom: spacing(9);
+      }
+
+      @include lg {
+        width: 244px;
+        height: 73px;
+      }
     }
 
     &-socials {
@@ -125,20 +153,30 @@ import { footerContacts, footerNavMenu, footerSocmed } from '@/constants/menu'
       display: flex;
       align-items: center;
       justify-content: center;
-      width: spacing(12);
-      height: spacing(12);
+      width: spacing(10);
+      height: spacing(10);
       border-radius: 50%;
       transition: background-color 300ms;
       border: 1px solid $primary-color;
+
+      @include md {
+        width: spacing(12);
+        height: spacing(12);
+      }
 
       &:hover {
         background-color: rgba($color: $primary-color, $alpha: 0.3);
       }
 
       img {
-        width: spacing(6);
-        height: spacing(6);
+        width: spacing(4);
+        height: spacing(4);
         object-fit: contain;
+
+        @include md {
+          width: spacing(6);
+          height: spacing(6);
+        }
       }
     }
   }
@@ -168,9 +206,14 @@ import { footerContacts, footerNavMenu, footerSocmed } from '@/constants/menu'
       }
 
       &-icon {
-        width: spacing(6);
-        height: spacing(6);
         object-fit: contain;
+        width: spacing(5);
+        height: spacing(5);
+
+        @include md {
+          width: spacing(6);
+          height: spacing(6);
+        }
       }
     }
   }
@@ -181,9 +224,14 @@ import { footerContacts, footerNavMenu, footerSocmed } from '@/constants/menu'
       gap: spacing(0.375);
 
       &-icon {
-        width: spacing(6);
-        height: spacing(6);
         margin-top: spacing(0.5);
+        width: spacing(5);
+        height: spacing(5);
+
+        @include md {
+          width: spacing(6);
+          height: spacing(6);
+        }
       }
 
       &-title {
@@ -201,10 +249,20 @@ import { footerContacts, footerNavMenu, footerSocmed } from '@/constants/menu'
     border-top: 1px solid rgba($color: $text-color, $alpha: 0.1);
     padding: spacing(6) 0px;
     text-align: center;
-    line-height: to-rem(28);
+    line-height: to-rem(24);
+    font-size: to-rem(16);
+
+    @include md {
+      font-size: to-rem(18);
+      line-height: to-rem(28);
+    }
 
     &-description {
-      font-size: to-rem(16);
+      font-size: to-rem(14);
+
+      @include md {
+        font-size: to-rem(16);
+      }
     }
   }
 }

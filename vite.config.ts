@@ -18,6 +18,7 @@ export default defineConfig({
         additionalData: `
           @use "@/assets/styles/_variables.scss" as *;
           @use "@/assets/styles/_utilities.scss" as *;
+          @use "@/assets/styles/_mixins.scss" as *;
         `,
       },
     },
