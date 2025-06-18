@@ -1,11 +1,9 @@
-<template>
-  <div>ORDER VIEW</div>
-</template>
+<script setup lang="ts">
+import HeroSection from '@/components/HeroSection.vue'
+import OrderContainer from '@/components/OrderContainer.vue'
+</script>
 
-<style lang="scss" scoped>
-div {
-  color: $primary-color;
-  background: #000000;
-  height: 100dvh;
-}
-</style>
+<template>
+  <HeroSection />
+  <OrderContainer />
+</template>

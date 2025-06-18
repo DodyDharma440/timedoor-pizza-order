@@ -32,6 +32,7 @@ import { RouterLink } from 'vue-router'
   left: 0;
   right: 0;
   color: #ffffff;
+  z-index: $navbar-z-index;
 
   &__logo,
   &__buttons {
