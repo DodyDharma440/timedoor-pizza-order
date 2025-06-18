@@ -1,30 +1,20 @@
 <script setup lang="ts">
 import toppingList from '@/static/topping-list.json'
 import sizeList from '@/static/size-list.json'
-import { ref } from 'vue'
 import RadioButton from './RadioButton.vue'
-import type { IPizzaSize } from '@/interfaces/pizza'
 import { currencyFormat } from '@/utils/number-format'
 
-const selectedToppings = ref<number[]>([])
-const selectedSize = ref<IPizzaSize>(sizeList.data[0])
+import { useOrderStore } from '@/stores/order'
+import type { IPizzaSize } from '@/interfaces/pizza'
+import { storeToRefs } from 'pinia'
 
-const isSelected = (toppingId: number) => {
-  return selectedToppings.value.includes(toppingId)
-}
-
-const handleSelect = (toppingId: number) => {
-  if (isSelected(toppingId)) {
-    selectedToppings.value = selectedToppings.value.filter((v) => v !== toppingId)
-  } else {
-    selectedToppings.value = [...selectedToppings.value, toppingId]
-  }
-}
+const store = useOrderStore()
+const { selectedSize, pizza } = storeToRefs(store)
 
 const handleChangeSize = (event: Event, value: IPizzaSize) => {
   const target = event.target as HTMLInputElement
   if (target.checked) {
-    selectedSize.value = value
+    store.setSelectedSize(value)
   }
 }
 </script>
@@ -61,10 +51,11 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
           <button
             class="btn"
             :class="{
-              'btn--primary-default': !isSelected(topping.id),
-              'btn--primary-light': isSelected(topping.id),
+              'btn--primary-default': !store.isToppingSelected(topping.id),
+              'btn--primary-light': store.isToppingSelected(topping.id),
             }"
-            @click="handleSelect(topping.id)"
+            @click="store.toggleSelectTopping(topping)"
+            :disabled="!pizza.toppings.includes(topping.id)"
           >
             {{ topping.name }}
           </button>

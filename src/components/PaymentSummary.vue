@@ -1,14 +1,8 @@
 <script setup lang="ts">
+import { useOrderStore } from '@/stores/order'
 import { currencyFormat } from '@/utils/number-format'
 
-const paymentDetails = [
-  { label: 'Pizza', value: 1 },
-  { label: 'Pizza', value: 1 },
-  { label: 'Pizza', value: 1 },
-  { label: 'Pizza', value: 1 },
-  { label: 'Pizza', value: 1 },
-  { label: 'Pizza', value: 1 },
-]
+const store = useOrderStore()
 </script>
 
 <template>
@@ -18,7 +12,7 @@ const paymentDetails = [
       <ul>
         <li
           class="payment-summary__detail-item"
-          v-for="(item, index) in paymentDetails"
+          v-for="(item, index) in store.paymentDetails"
           :key="index"
         >
           <p class="payment-summary__detail-item-label">
@@ -33,7 +27,9 @@ const paymentDetails = [
     <hr class="payment-summary__divider" />
     <div class="payment-summary__total">
       <p>Total Price</p>
-      <p class="payment-summary__total-price">{{ currencyFormat(10) }}</p>
+      <p class="payment-summary__total-price">
+        {{ currencyFormat(store.totalPrice) }}
+      </p>
     </div>
 
     <button class="btn btn--primary">Order Now</button>

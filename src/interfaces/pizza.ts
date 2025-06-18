@@ -16,3 +16,9 @@ export interface IPizzaSize {
   name: string
   extra_price: number
 }
+
+export interface IPizzaTopping {
+  id: number
+  name: string
+  price: number
+}

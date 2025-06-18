@@ -12,6 +12,11 @@
     background-color: #e3e3e3;
     color: #919191;
     cursor: not-allowed;
+    border: 0;
+    &:hover {
+      background-color: #e3e3e3;
+      color: #919191;
+    }
   }
 
   &--primary {

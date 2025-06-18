@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import pizzaList from '@/static/pizza-list.json'
 import PizzaCard from './PizzaCard.vue'
-import type { IPizza } from '@/interfaces/pizza'
-import { ref } from 'vue'
+import { useOrderStore } from '@/stores/order'
 
-const selectedPizza = ref<IPizza | null>(null)
-
-const handleSelect = (pizza: IPizza) => {
-  selectedPizza.value = pizza
-}
+const store = useOrderStore()
 </script>
 
 <template>
@@ -17,8 +12,8 @@ const handleSelect = (pizza: IPizza) => {
     <div class="pizza-list__item" v-for="pizza in pizzaList.data" :key="pizza.id">
       <PizzaCard
         :pizza="pizza"
-        :is-selected="selectedPizza?.id === pizza.id"
-        @select="handleSelect(pizza)"
+        :is-selected="store.pizza.id === pizza.id"
+        @select="store.setPizza(pizza)"
       />
     </div>
   </div>
