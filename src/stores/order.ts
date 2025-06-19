@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import sizeList from '@/static/size-list.json'
 import type { IOrderState, IPaymentDetail } from '@/interfaces/order'
 import type { IPizza, IPizzaSize, IPizzaTopping } from '@/interfaces/pizza'
 
@@ -39,6 +40,11 @@ export const useOrderStore = defineStore('order', {
   actions: {
     setPizza(value: IPizza) {
       this.pizza = value
+
+      if (!this.selectedSize) {
+        this.selectedSize = sizeList.data[0]
+      }
+
       this.selectedToppings = this.selectedToppings.filter((t) => {
         return value.toppings.includes(t.id)
       })
@@ -50,6 +56,7 @@ export const useOrderStore = defineStore('order', {
       return this.selectedToppings.some((t) => t.id === toppingId)
     },
     toggleSelectTopping(value: IPizzaTopping): void {
+      console.log('🚀 ~ toggleSelectTopping ~ value:', value)
       const isSelected = this.isToppingSelected(value.id)
       if (isSelected) {
         this.selectedToppings = this.selectedToppings.filter((v) => v.id !== value.id)

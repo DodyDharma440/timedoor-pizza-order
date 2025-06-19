@@ -6,10 +6,9 @@ import { currencyFormat } from '@/utils/number-format'
 
 import { useOrderStore } from '@/stores/order'
 import type { IPizzaSize } from '@/interfaces/pizza'
-import { storeToRefs } from 'pinia'
+import PizzaTopping from './PizzaTopping.vue'
 
 const store = useOrderStore()
-const { selectedSize, pizza } = storeToRefs(store)
 
 const handleChangeSize = (event: Event, value: IPizzaSize) => {
   const target = event.target as HTMLInputElement
@@ -29,7 +28,7 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
           v-for="size in sizeList.data"
           :key="size.id"
           :value="size.id"
-          :checked="size.id === selectedSize?.id"
+          :checked="size.id === store.selectedSize?.id"
           @change="handleChangeSize($event, size)"
         >
           {{ size.name }}
@@ -48,17 +47,7 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
           v-for="topping in toppingList.data"
           :key="topping.id"
         >
-          <button
-            class="btn"
-            :class="{
-              'btn--primary-default': !store.isToppingSelected(topping.id),
-              'btn--primary-light': store.isToppingSelected(topping.id),
-            }"
-            @click="store.toggleSelectTopping(topping)"
-            :disabled="!pizza?.toppings.includes(topping.id)"
-          >
-            {{ topping.name }}
-          </button>
+          <PizzaTopping :topping="topping" />
         </div>
       </div>
     </div>
@@ -110,10 +99,6 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
 
         @include lg {
           grid-column: span 2 / span 2;
-        }
-
-        .btn {
-          width: 100%;
         }
       }
     }
