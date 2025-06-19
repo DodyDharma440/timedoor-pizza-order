@@ -1,8 +1,19 @@
 <script setup lang="ts">
 import { useOrderStore } from '@/stores/order'
 import { currencyFormat } from '@/utils/number-format'
+import { computed, ref } from 'vue'
+import ConfirmationModal from './ConfirmationModal.vue'
 
 const store = useOrderStore()
+const isConfirmOpen = ref(false)
+
+const handleToggle = () => {
+  isConfirmOpen.value = !isConfirmOpen.value
+}
+
+const disabledOrder = computed(() => {
+  return !store.pizza || !store.selectedSize
+})
 </script>
 
 <template>
@@ -32,8 +43,12 @@ const store = useOrderStore()
       </p>
     </div>
 
-    <button class="btn btn--primary">Order Now</button>
+    <button class="btn btn--primary" @click="handleToggle()" :disabled="disabledOrder">
+      Order Now
+    </button>
   </div>
+
+  <ConfirmationModal :is-open="isConfirmOpen" @close="handleToggle()" />
 </template>
 
 <style lang="scss" scoped>

@@ -16,6 +16,10 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   color: $text-color;
+
+  &:is(.some-modal-opened) {
+    overflow: hidden;
+  }
 }
 
 a {

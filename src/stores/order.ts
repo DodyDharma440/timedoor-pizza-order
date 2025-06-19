@@ -57,5 +57,10 @@ export const useOrderStore = defineStore('order', {
         this.selectedToppings = [...this.selectedToppings, value]
       }
     },
+    reset() {
+      this.pizza = null
+      this.selectedSize = null
+      this.selectedToppings = []
+    },
   },
 })
