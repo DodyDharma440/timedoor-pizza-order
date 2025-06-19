@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import toppingList from '@/static/topping-list.json'
 import sizeList from '@/static/size-list.json'
-import RadioButton from './RadioButton.vue'
+import RadioButton from '../common/RadioButton.vue'
 import { currencyFormat } from '@/utils/number-format'
 
 import { useOrderStore } from '@/stores/order'

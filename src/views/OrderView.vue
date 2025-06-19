@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HeroSection from '@/components/HeroSection.vue'
-import OrderContainer from '@/components/OrderContainer.vue'
+import HeroSection from '@/components/order/HeroSection.vue'
+import OrderContainer from '@/components/order/OrderContainer.vue'
 </script>
 
 <template>

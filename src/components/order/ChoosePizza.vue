@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import pizzaList from '@/static/pizza-list.json'
-import PizzaCard from './PizzaCard.vue'
 import { useOrderStore } from '@/stores/order'
+import PizzaCard from './PizzaCard.vue'
 
 const store = useOrderStore()
 </script>
