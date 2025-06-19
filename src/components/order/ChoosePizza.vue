@@ -10,11 +10,16 @@ const store = useOrderStore()
   <h2 class="section-title">Choose your pizza</h2>
   <div class="pizza-list">
     <div class="pizza-list__item" v-for="pizza in pizzaList.data" :key="pizza.id">
-      <PizzaCard
-        :pizza="pizza"
-        :is-selected="store.pizza?.id === pizza.id"
-        @select="store.setPizza(pizza)"
+      <input
+        type="radio"
+        style="display: none"
+        :id="`pizza-${pizza.id}`"
+        :checked="store.pizza?.id === pizza.id"
+        @change="store.setPizza(pizza)"
       />
+      <label :for="`pizza-${pizza.id}`">
+        <PizzaCard :pizza="pizza" :is-selected="store.pizza?.id === pizza.id" />
+      </label>
     </div>
   </div>
 </template>

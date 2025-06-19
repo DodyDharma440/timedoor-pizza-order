@@ -7,18 +7,13 @@ type PizzaCardProps = {
   isSelected: boolean
 }
 
-type PizzaCardEmits = {
-  (e: 'select'): void
-}
-
 const { pizza, isSelected } = defineProps<PizzaCardProps>()
-const emit = defineEmits<PizzaCardEmits>()
 
 const finalPrice = pizza.discount.is_active ? pizza.discount.final_price : pizza.price
 </script>
 
 <template>
-  <div class="pizza-card" :class="{ 'pizza-card--selected': isSelected }" @click="emit('select')">
+  <div class="pizza-card" :class="{ 'pizza-card--selected': isSelected }">
     <div class="pizza-card__discount-ribbon" v-if="pizza.discount.is_active">OFFER</div>
 
     <img class="pizza-card__image" :src="`/images/pizza/${pizza.name}.png`" />
