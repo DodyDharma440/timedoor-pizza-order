@@ -34,7 +34,7 @@ const handleChangeSize = (event: Event, value: IPizzaSize) => {
         >
           {{ size.name }}
           <span class="custom-pizza__size-extra-price" v-if="size.extra_price">
-            {{ `(+${currencyFormat(size.extra_price)})` }}
+            {{ `(+${currencyFormat(size.extra_price, { trimZero: true })})` }}
           </span>
         </RadioButton>
       </div>

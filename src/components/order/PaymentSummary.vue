@@ -30,7 +30,7 @@ const disabledOrder = computed(() => {
             {{ item.label }}
           </p>
           <p>
-            {{ currencyFormat(item.value) }}
+            {{ currencyFormat(item.value, { trimZero: true }) }}
           </p>
         </li>
       </ul>
