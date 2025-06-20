@@ -8,13 +8,16 @@ const emit = defineEmits<BaseModalEmits>()
 watch(
   () => isOpen,
   (_isOpen) => {
+    // Used for add class `some-modal-opened` to hide scrollbar in body
     if (_isOpen) {
       const isExist = document.body.classList.contains('some-modal-opened')
       if (!isExist) {
+        // Add class if doesn't exist
         document.body.classList.add('some-modal-opened')
       }
     } else {
       const openedModals = document.getElementsByClassName('modal--opened')
+      // Remove class if no modals opened
       if (openedModals.length <= 1) {
         document.body.classList.remove('some-modal-opened')
       }

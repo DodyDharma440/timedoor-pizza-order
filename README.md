@@ -1,6 +1,13 @@
-# ./
+# Foodnow Pizza Order
 
-This template should help get you started developing with Vue 3 in Vite.
+![Foodnow Screenshot](https://ik.imagekit.io/2pcqbvgddy/Foodnow/Screenshot%202025-06-20%20at%2008.23.45.png?updatedAt=1750379034841)
+
+## Tech Stack
+
+- Vue 3 (Composition API)
+- TypeScript
+- SCSS
+- Pinia
 
 ## Recommended IDE Setup
 

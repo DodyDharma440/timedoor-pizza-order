@@ -1,5 +1,6 @@
 <template>
   <div class="radio-button">
+    <!-- pass rest attributes to input element -->
     <input type="radio" class="radio-button__input" v-bind="$attrs" />
     <span class="radio-button__look"></span>
     <slot />
